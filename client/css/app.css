@@ -1,0 +1,198 @@
+@import url(bootstrap.min.css);
+@font-face {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/gotham.eot?#iefix") format("embedded-opentype"), url("/fonts/gotham.woff2") format("woff2"), url("/fonts/gotham.woff") format("woff"), url("/fonts/gotham.ttf") format("truetype"), url("/fonts/gotham.svg#Gotham") format("svg"); }
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/OpenSans.eot?#iefix") format("embedded-opentype"), url("/fonts/OpenSans.woff2") format("woff2"), url("/fonts/OpenSans.woff") format("woff"), url("/fonts/OpenSans.ttf") format("truetype"), url("/fonts/OpenSans.svg#Open Sans") format("svg"); }
+@font-face {
+  font-family: "PFDinTextCondPro-Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/PFDinTextCondPro-Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/PFDinTextCondPro-Medium.woff2") format("woff2"), url("/fonts/PFDinTextCondPro-Medium.woff") format("woff"), url("/fonts/PFDinTextCondPro-Medium.ttf") format("truetype"), url("/fonts/PFDinTextCondPro-Medium.svg#PFDinTextCondPro-Medium") format("svg"); }
+@font-face {
+  font-family: "PFDinDisplayPro-Black";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/PFDinDisplayPro-Black.eot?#iefix") format("embedded-opentype"), url("/fonts/PFDinDisplayPro-Black.woff2") format("woff2"), url("/fonts/PFDinDisplayPro-Black.woff") format("woff"), url("/fonts/PFDinDisplayPro-Black.ttf") format("truetype"), url("/fonts/PFDinDisplayPro-Black.svg#PFDinDisplayPro-Black") format("svg"); }
+@font-face {
+  font-family: "PFDinDisplayPro-Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/PFDinDisplayPro-Medium.eot?#iefix") format("embedded-opentype"), url("/fonts/PFDinDisplayPro-Medium.woff2") format("woff2"), url("/fonts/PFDinDisplayPro-Medium.woff") format("woff"), url("/fonts/PFDinDisplayPro-Medium.ttf") format("truetype"), url("/fonts/PFDinDisplayPro-Medium.svg#PFDinDisplayPro-Medium") format("svg"); }
+body,
+html {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  background: url("/images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  font-size: 1em;
+  display: table-cell;
+  vertical-align: bottom;
+  font-family: "PFDinDisplayPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+#tablero {
+  padding: 50px;
+  opacity: 0.6;
+  width: 100vw;
+  height: 100vh;
+  display: table-cell;
+  vertical-align: bottom; }
+  #tablero .good, #tablero .green {
+    color: #40ff89; }
+  #tablero .bad {
+    color: #ff4040; }
+  #tablero .separador {
+    width: 40px;
+    float: left;
+    border-left: 1px solid transparent; }
+  #tablero .separadorTransito {
+    width: 40px;
+    border: 40px solid transparent;
+    content: ""; }
+  #tablero .columna {
+    vertical-align: bottom;
+    width: 100%; }
+    #tablero .columna .celda {
+      display: table-cell; }
+    #tablero .columna .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #horalugar .hora {
+      font-size: 1.5em;
+      text-align: right; }
+    #tablero .columna #horalugar .titulo {
+      font-family: "PFDinDisplayPro-Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 0.8em;
+      font-size: 8em; }
+    #tablero .columna #horalugar .descripcion {
+      color: #000000;
+      background-color: #ffffff;
+      font-size: 1.1em; }
+    #tablero .columna #consumoenergetico .big {
+      float: left; }
+    #tablero .columna #consumoenergetico .small {
+      float: left; }
+    #tablero .columna #consumoenergetico .etiquetaTipoDeDato {
+      opacity: 0.8;
+      line-height: 1.2em;
+      font-size: 0.16em;
+      position: relative;
+      float: right;
+      right: 10%;
+      top: 25px;
+      color: #ffffff; }
+      #tablero .columna #consumoenergetico .etiquetaTipoDeDato .label {
+        color: #000000;
+        background-color: #ffffff; }
+    #tablero .columna #consumoenergetico .datoGrande {
+      line-height: 0.8em;
+      font-size: 14em; }
+    #tablero .columna #consumoenergetico .datoChico {
+      line-height: 0.8em;
+      font-size: 6.5em; }
+    #tablero .columna #climaExterno .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #climaExterno #temperatura {
+      line-height: 0.8em;
+      font-size: 10em; }
+    #tablero .columna #climaExterno #cielo {
+      font-size: 2.3em; }
+    #tablero .columna #climaExterno #icono {
+      padding-bottom: 10px;
+      text-align: center;
+      margin: 0 auto;
+      height: 70px;
+      width: 80px; }
+    #tablero .columna #climaExterno .diadespejado {
+      background: url("/images/icons/dia_despejado.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .nochedespejada {
+      background: url("/images/icons/noche_despejado.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .lluvia {
+      background: url("/images/icons/lluvia.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .nieve {
+      background: url("/images/icons/nieve.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .aguanieve {
+      background: url("/images/icons/aguanieve.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .viento {
+      background: url("/images/icons/viento.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .niebla {
+      background: url("/images/icons/niebla.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .nublado {
+      background: url("/images/icons/nublado.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .diaparcialmentenublado {
+      background: url("/images/icons/parcialmente_nublado.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaExterno .nocheparcialmentenublada {
+      background: url("/images/icons/parcialmente_nublado_noche.svg") no-repeat center;
+      background-size: cover; }
+    #tablero .columna #climaInterno .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #climaInterno #temperaturaInterna {
+      line-height: 0.8em;
+      font-size: 10em; }
+    #tablero .columna #estacionbici .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #estacionbici .dato {
+      line-height: 0.8em;
+      font-size: 10em;
+      text-align: center; }
+    #tablero .columna #estacionbici .estacion {
+      bottom: 23px;
+      font-size: 1em;
+      position: relative;
+      text-align: center; }
+    #tablero .columna #estacionbici .referencia {
+      background-color: #fff;
+      bottom: 75px;
+      color: #000;
+      font-size: 1em;
+      opacity: 0.8;
+      position: relative;
+      right: -50px;
+      text-align: center;
+      width: 70%; }
+    #tablero .columna #calidadAire .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #calidadAire #co2 {
+      line-height: 0.8em;
+      font-size: 10em; }
+      #tablero .columna #calidadAire #co2 .sup {
+        font-size: 0.2em;
+        position: relative;
+        top: -90px; }
+    #tablero .columna #subtesChico .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #subtesChico .estado-subte {
+      font-size: 0.8em; }
+    #tablero .columna #ausa .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #ausa li {
+      font-size: 0.9em;
+      line-height: 2em; }
+    #tablero .columna #distancias .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #distancias .label {
+      font-size: 0.9em;
+      line-height: 2em; }
+    #tablero .columna #trafico_avIndep .etiqueta {
+      font-size: 1em; }
+    #tablero .columna #trafico_avIndep li {
+      line-height: 1.2em;
+      font-size: 0.9em; }
+
+/*# sourceMappingURL=app.css.map */

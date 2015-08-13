@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <SocketStream/>
+    <title>Dashboard Cívico</title>
+  </head>
+  <body>
+    <div class="dashboard">
+
+      <div id="seccionesCarousel" class="carousel slide dashboardBg" data-ride="carousel">
+        
+        <ol class="carousel-indicators">
+          <li data-target="#seccionesCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#seccionesCarousel" data-slide-to="1"></li>
+          <li data-target="#seccionesCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- 3 divs rotativos -->
+        <div class="carousel-inner" role="listbox">
+          <div id="seccion-cultura" class="item active">
+            <!-- widget agenda -->
+            <h1>Eje Cultura</h1>
+            <div id="agenda" class="feedGrande">
+              <div class="cargando">Cargando agenda</div>
+            </div>
+            <!-- widget twitter -->
+            <div id="ultimos_tweets" class="feedGrande">
+              <div class="cargando">Cargando tweets</div>
+            </div>
+          </div>
+          <div id="seccion-ambiente" class="item">
+            <h1>Eje Ambiente</h1>
+            <div id="consumoenergetico" class="feedGrande">
+              <div class="cargando">Cargando consumo</div>
+            </div>
+          </div>
+          <div id="seccion-transporte" class="item">
+            <h1>Eje Transporte</h1>
+            <div id="subtesGrande" class="feedGrande">
+              <div class="cargando">Cargando subtes</div>
+            </div>
+
+            <div id="ausa" class="feedGrande">
+              <div class="cargando">Cargando AUSA</div>
+            </div>
+
+            <div id="trafico_avIndep" class="feedGrande">
+              <div class="cargando">Cargando Tránsito Av. Independencia</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboardSm">
+        <!-- widget hora y lugar -->
+        <div id="horalugar" class="feedChico"></div>
+
+        <!-- widget clima -->
+        <div id="clima" class="feedChico">
+          <div class="cargando">Cargando clima</div>
+        </div>
+
+        <!-- widget bicicletas -->
+        <div id="estacionbici" class="feedChico">
+          <div class="cargando">Cargando bicicletas</div>
+        </div>
+
+        <!-- widget subtes -->
+        <div id="subtesChico" class="feedChico">
+          <div class="cargando">Cargando subtes</div>
+        </div>
+
+      </div>
+      
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.carousel').carousel({
+          interval: 8000,
+          wrap: true,
+          pause: false
+        })
+      });
+    </script>
+  </body>
+</html>
