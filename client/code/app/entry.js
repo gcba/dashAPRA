@@ -17,16 +17,7 @@ var config = [
         "name": "main",
         "path": "/",
         "widgets": [
-            "/consumoenergetico",
-            "/clima",
-            "/bicis",
-            "/subtes",
-            "/distancias",
-            "/horalugar",
-            "/trafico_avIndep",
-            "/co2",
-            "/climainterno",
-            "/ausatrafico"
+            "/epa"
         ]
     },
     {
@@ -34,7 +25,7 @@ var config = [
         "path": "/plazalezama",
         "widgets": []
     }
-]
+];
 
 var getGeo = function(cb){
   if ("geolocation" in navigator) {
@@ -43,7 +34,7 @@ var getGeo = function(cb){
       cb(result)
     })
   }
-}
+};
 
 ss.server.on('ready', function(){
 
@@ -57,8 +48,8 @@ ss.server.on('ready', function(){
 
         getGeo(function(result){
           if (result)
-            console.log(result)
-            ss.rpc('bicis.calDistance', result)
+            console.log(result);
+            ss.rpc('bicis.calDistance', result);
             // setTimeout(function() {
             //   ss.rpc('bicis.miEstacion')
             // }, 1000);
@@ -75,4 +66,3 @@ ss.server.on('ready', function(){
   });
 
 });
-

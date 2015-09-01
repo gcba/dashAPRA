@@ -3,3 +3,4 @@ npm-debug.log
 .idea
 webappdashboard.log
 webappdashboard.pid
+server.log

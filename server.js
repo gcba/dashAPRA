@@ -10,7 +10,7 @@ var http = require('http'),
 require('./server/routes/routes')(ss, config['routes']);
 
 ss.session.store.use('redis');
-if (redis_cfg["auth"]) 
+if (redis_cfg["auth"])
 	connRedis.auth(redis_cfg["auth"]);
 
 ss.api.add('db', connRedis);

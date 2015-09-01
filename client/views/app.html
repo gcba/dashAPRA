@@ -2,83 +2,91 @@
 <html lang="es">
 
 <head>
- <meta charset="utf-8" />
- <SocketStream/>
- <title>Dashboard Cívico</title>
-
-  <script type="text/javascript">
-     $(document).ready(function() {
-       $('.carousel').carousel({
-         interval: 8000,
-         wrap: true,
-         pause: false
-       })
-     });
-   </script>
-
+    <meta charset="utf-8"/>
+    <SocketStream/>
+    <title>Dashboard Cívico</title>
 </head>
 
 <body>
- <div id="tablero">
-   <div class="columna">
-     <div class="celda">
-       <span id="horalugar">Cargando Lugar...</span>
-     </div>
-   </div>
+    <span id="epa">
+        <div id="epa-minutal">
+            <h1>EPA - Parque Centenario</h1>
+            <div id="epa-minutal-date">
+                --
+            </div>
 
-   <div id="seccionesCarousel" class="carousel slide tablero" data-ride="carousel">
+            <div id="epa-minutal-no">
+                <span class="datatype">NO</span>
+                <span class="data">--</span>
+                <span class="unidad">ppb</span>
+            </div>
 
-     <div class="carousel-inner" role="listbox">
-       <div id="seccion-ambiente" class="item active">
+            <div id="epa-minutal-n2">
+                <span class="datatype">N2</span>
+                <span class="data">--</span>
+                <span class="unidad">ppb</span>
+            </div>
 
-         <div class="columna">
-           <div class="celda">
-             <span id="consumoenergetico">Cargando Consumo Energético...</span>
-           </div>
-         </div>
+            <div id="epa-minutal-nox">
+                <span class="datatype">NOX</span>
+                <span class="data">--</span>
+                <span class="unidad">ppb</span>
+            </div>
 
-         <div class="columna">
+            <div id="epa-minutal-co">
+                <span class="datatype">CO</span>
+                <span class="data">--</span>
+                <span class="unidad">ppm</span>
+            </div>
 
-           <span id="climaExterno">
-             <div class="celda">Cargando Temperatura Externa...</div>
-           </span>
+            <div id="epa-minutal-pm10">
+                <span class="datatype">PM10</span>
+                <span class="data">--</span>
+                <span class="unidad">ug/m3</span>
+            </div>
 
-           <span id="climaInterno">
-             Cargando Temperatura Interna...
-           </span>
+            <div id="epa-minutal-dv">
+                <span class="datatype">DV</span>
+                <span class="data">--</span>
+                <span class="unidad">°</span>
+            </div>
 
-           <span id="calidadAire">
-             Cargando Calidad del aire...
-           </span>
-         </div>
-       </div>
+            <div id="epa-minutal-vv">
+                <span class="datatype">VV</span>
+                <span class="data">--</span>
+                <span class="unidad">km/h</span>
+            </div>
 
-       <div id="seccion-transporte" class="item">
-           <div class="columna">
+            <div id="epa-minutal-temp">
+                <span class="datatype">TEMP</span>
+                <span class="data">--</span>
+                <span class="unidad">°C</span>
+            </div>
 
-             <span id="estacionbici">Cargando Bicicletas...</span>
-             <span class="separadorTransito"></span>             
-             <span id="subtesChico">Cargando Subtes...</span>
+            <div id="epa-minutal-humedad">
+                <span class="datatype">HUMEDAD</span>
+                <span class="data">--</span>
+                <span class="unidad">%</span>
+            </div>
 
-           </div>
+            <div id="epa-minutal-presion">
+                <span class="datatype">PRESION</span>
+                <span class="data">--</span>
+                <span class="unidad">hPa</span>
+            </div>
 
-           <div class="columna">
-             <span id="ausa">Cargando Autopista...</span>
-             <span class="separadorTransito">&nbsp;&nbsp;&nbsp;&nbsp;</span>             
-             <span id="distancias">Cargando Tránsito...</span>
-             <span class="separadorTransito">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-             <span id="trafico_avIndep">Cargando Av. Independencia...</span>
-           </div>
-         </div>
-       </div>
+            <div id="epa-minutal-radiacion">
+                <span class="datatype">RADIACION</span>
+                <span class="data">--</span>
+                <span class="unidad">w/m2</span>
+            </div>
 
-     </div>
-
-   </div>
-
-
- </div>
-
-</div>
+            <div id="epa-minutal-lluvia">
+                <span class="datatype">LLUVIA</span>
+                <span class="data">--</span>
+                <span class="unidad">mm</span>
+            </div>
+        </div>
+    </span>
 </body>
 </html>

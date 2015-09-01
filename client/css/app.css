@@ -196,3 +196,13 @@ html {
       font-size: 0.9em; }
 
 /*# sourceMappingURL=app.css.map */
+
+#epa-minutal {
+  position: fixed;
+  left: 50px;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  padding: 50px;
+  font-size: 1.5em;
+}
