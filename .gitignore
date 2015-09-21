@@ -4,3 +4,4 @@ npm-debug.log
 webappdashboard.log
 webappdashboard.pid
 server.log
+*.pyc
