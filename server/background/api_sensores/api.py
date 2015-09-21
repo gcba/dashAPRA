@@ -8,7 +8,7 @@ import json
 import sys
 
 log_requests = False
-token = 'superadmin.'
+token = 'token'
 
 
 class Endpoint(object):

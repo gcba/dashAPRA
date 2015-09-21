@@ -14,7 +14,8 @@ def log(msj):
     msj = time_string + '  ' + msj
     sys.stdout.write("%s\n" % msj)
 
-names = {
+
+names_centenario = {
     1154: 'NO',
     1155: 'N2',
     1156: 'NOX',
@@ -29,10 +30,54 @@ names = {
     1165: 'LLUVIA'
 }
 
+names_la_boca = {
+    1166: 'NO',
+    1167: 'NO_CAL',
+    1168: 'NO2',
+    1169: 'NO2_CAL',
+    1170: 'NOX',
+    1171: 'NOX_CAL',
+    1172: 'CO',
+    1173: 'CO_CAL',
+    1174: 'PM10',
+    1175: 'PM10_CAL',
+    1176: 'WINDDIRECTION',
+    1177: 'WINDDIRECTION_CAL',
+    1178: 'WINDSPEED',
+    1179: 'WINDSPEED_CAL',
+    1180: 'TEMPERATURE',
+    1181: 'TEMPERATURE_CAL',
+    1182: 'RELHUMIDITY',
+    1183: 'RELHUMIDITY_CAL',
+    1184: 'ATMPRESSURE',
+    1185: 'ATMPRESSURE_CAL',
+    1186: 'GLOBALRADIATION',
+    1187: 'GLOBALRADIATION_CAL',
+    1188: 'RAIN',
+    1189: 'RAIN_CAL',
+    1190: 'OZON',
+    1191: 'OZON_CAL',
+    1192: 'H2S',
+    1193: 'H2S_CAL',
+    1194: 'SO2',
+    1195: 'SO2_CAL',
+    1196: 'UV-A',
+    1197: 'UV-A_CAL'
+}
 
-def sleep():
-    now = datetime.datetime.now()
-    time.sleep(60 - now.second)
+names_cordoba = names_la_boca
+
+
+def get_epa_data(sensor_id, names):
+    hack_time = '2016-05-10T00:00:00-03:00'
+    epa_data = api.Data.get_multiple_lasts(sensor_id, {'fecha_hasta':hack_time})
+    data = {}
+    if len(epa_data) > 0:
+        data['time'] = epa_data[0].attrs['date']
+        for d in epa_data:
+            name = names[int(d.attrs['id_data_type'])]
+            data[name] = d.attrs['data']
+    return data
 
 
 if __name__ == '__main__':
@@ -44,14 +89,16 @@ if __name__ == '__main__':
     )
     while True:
         try:
-            epa_data = api.Data.get_last(178, {'limit': 12})
-            epa_message = {'time': epa_data[0].attrs['date']}
-            for d in epa_data:
-                name = names[d.attrs['id_data_type']]
-                epa_message[name] = d.attrs['data']
+            epa_message = {
+                'centenario': get_epa_data(178, names_centenario),
+                'la_boca': get_epa_data(227, names_la_boca),
+                'cordoba': get_epa_data(228, names_cordoba)
+            }
+
             log(str(epa_message))
             clients = redis_epa.publish("epa_minutal", json.dumps(epa_message))
             log("%d clients" % clients)
         except Exception as e:
             log("Error\n%s" % str(e))
-        sleep()
+        time.sleep(30)
+s
