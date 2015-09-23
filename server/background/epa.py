@@ -70,10 +70,10 @@ names_cordoba = names_la_boca
 
 def get_epa_data(sensor_id, names):
     hack_time = '2016-05-10T00:00:00-03:00'
-    epa_data = api.Data.get_multiple_lasts(sensor_id, {'fecha_hasta':hack_time})
+    epa_data = api.Data.get_multiple_lasts(sensor_id, {'fecha_hasta': hack_time})
     data = {}
     if len(epa_data) > 0:
-        data['time'] = epa_data[0].attrs['date']
+        data['time'] = sorted([d.attrs['date'] for d in epa_data])[-1]
         for d in epa_data:
             name = names[int(d.attrs['id_data_type'])]
             data[name] = d.attrs['data']
@@ -101,4 +101,3 @@ if __name__ == '__main__':
         except Exception as e:
             log("Error\n%s" % str(e))
         time.sleep(30)
-s
